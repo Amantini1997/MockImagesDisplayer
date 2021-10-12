@@ -7,10 +7,10 @@ Upon completion, run `npm start` to start the application which will be availabl
 
 
 # Fix registration POST request
-The server currently used is not shipped with this application. 
+The server used to test the application is not shipped with it. 
 
-This application points to a server used for its production, that is `http://localhost:3000/`, 
+This application currently points to a the server `http://localhost:3000/` to make its POST requests (registration form), 
 
-to change it, navigate to `environments > environments.prod.ts` and change the value of `serverUrl` to point to 
+to change it, navigate to `environments > environments.prod.ts` and update the value of `serverUrl` to point to 
 
 the right server url.
