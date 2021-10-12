@@ -1,27 +1,11 @@
-# Client
+# How to run
+Before running the application, be sure to have Angular `11.x.x` and Node `14.x.x` installed.
+Navigate to the folder containing the project and run `npm i` to install all the node modules necessary.
+Upon completion, run `npm start` to start the application which will be available at http://localhost:4200/.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Fix registration POST request
+The server currently used is not shipped with this application. 
+This application points to a server used for its production, that is `http://localhost:3000/`, 
+to change it, navigate to `environments > environments.prod.ts` and change the value of `serverUrl` to point to 
+the right server url.
