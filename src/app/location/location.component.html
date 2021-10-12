@@ -1,0 +1,19 @@
+<div class="ctn">
+    <div class="side-menu">
+        <a *ngFor="let locationName of locationNames" 
+           (click)="scrollToElementWithId(locationName)"
+        >
+            {{locationName}}
+        </a>
+    </div>
+    <div class="carousel">
+        <div [id]="location.name" class="location" *ngFor="let location of locations">
+            <h2 class="location__name">{{location.name}}</h2>
+            <owl-carousel-o [options]="customOptions" #carousel>
+                <ng-template *ngFor="let imgSrc of location.imgs" carouselSlide>
+                    <img [src]="imgSrc">
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>

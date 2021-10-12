@@ -1,0 +1,203 @@
+@import '../variables.scss';
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: $blue3;
+    color: $white;
+    font-size: larger;
+    font-weight: 600;
+    height: 60px;
+    padding: 0 20px;
+
+    > nav > a {
+        padding: 5px;
+        margin: 10px 20px;
+        color: $white;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.10em;
+        
+        display: inline-block;
+        position: relative;
+
+      
+        &::after {    
+            background: none repeat scroll 0 0 transparent;
+            bottom: 0;
+            content: "";
+            display: block;
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            background: $white;
+            transition: width 0.3s ease 0s, left 0.3s ease 0s;
+            width: 0;
+        }
+
+        &:hover::after { 
+            width: 100%; 
+            left: 0; 
+        }
+    }
+}
+
+footer {
+    background-color: $blue0;
+    border-radius: 30px;
+    margin: 80px 80px 30px;
+}
+
+.subscription-title {
+    color: $blue4;
+    margin-top: 0;
+    padding-top: 30px;
+}
+
+.subscription-content {
+    margin-top: 70px;
+    padding-bottom: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+
+    .info {
+        padding: 70px;
+        margin: auto;
+        margin-bottom: 20px;
+        color: $blue5;
+        font-size: larger;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: center;
+
+        position: relative;
+        background-color: $white;
+        margin: auto;
+        width: 285px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 2px 8px 20px -1px $blue4;
+        overflow: hidden;
+
+        > .confirm-msg {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: $white;
+            padding: 30px;
+            transition: all .3s;
+            opacity: 0;
+            z-index: -2;
+
+            &.active {
+                opacity: 1;
+                z-index: 1;
+            }
+
+            > * {
+                text-align: center;
+                color: $blue3;
+                font-weight: 600;
+                font-size: larger;
+            }
+        }
+    
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            color: $blue3;
+        }
+    
+        > label {
+            width: 100%;
+            text-align: left;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 6px;
+            color: $blue4;
+        }
+    
+        input {
+            padding: 5px;
+            border: solid 1px $black;
+            border-radius: 2px;
+            width: 100%;
+    
+            &:invalid {
+                border: solid 2px $error;
+            }
+        }
+
+        .error-msg {
+            padding: 5px;
+            font-size: small;
+            color: $error;
+        }
+    
+        .password-ctn {
+            position: relative;
+            display: grid;
+            align-items: center;
+            width: 100%;
+    
+            > input {
+                margin-right: 20px;
+            }
+    
+            > .toggle-pass-btn {
+                position: absolute;
+                right: 10px;
+                padding-right: 30px;
+                background-color: transparent;
+                border: none;
+                padding: 0;
+                display: flex;
+                align-items: center;
+    
+                > img {
+                    width: 20px;
+                }
+            }
+        }
+    
+        .subscribe-btn {
+            margin-top: 20px;
+            height: 40px;
+            border-radius: 15px;
+            background-color: $blue4;
+            color: $white;
+            font-size: medium;
+            font-weight: 600;
+            border: 0;
+            padding: 7px 15px;
+            // transition: all .1s;
+    
+            &:hover {
+                background-color: $blue3;
+            }
+    
+            &:active {
+                background-color: $blue2;
+            }
+
+            &:disabled {
+                color: $disabled;
+                background: $disabled-bg;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

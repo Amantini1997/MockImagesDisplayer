@@ -1,0 +1,93 @@
+<header>
+    <nav>
+        <a routerLink="locations">Locations</a>
+        <a routerLink="about-us">About us</a>
+    </nav>
+</header>
+<router-outlet></router-outlet>
+<footer>
+    <h1 class="subscription-title">Subscribe</h1>
+    <div class="subscription-content">
+        <div class="info">
+            Are you interested in finding out when new locations will become available?
+            Register now to our subscription list and Lorem ipsum dolor sit, amet consectetur 
+            adipisicing elit. 
+            <br>
+            <br>
+            Quaerat deleniti aspernatur voluptates id possimus veniam delectus, 
+            aliquid consequuntur nihil, assumenda, sint architecto aliquam ipsam ut nesciunt 
+            eveniet voluptas nisi maiores!
+        </div>
+        <form action="" #registrationForm>            
+            <strong class="title">Subscription Form</strong>
+            <label for="name">Name:</label>
+            <input name="name" 
+                #name
+                type="text" 
+                pattern="[a-zA-Z\s]*"
+                (keyup)="updateFormValidity()"
+                required
+            >
+            <span class="error-msg">{{ nameErrorMessage }}</span>
+            
+            <label for="email">Email:</label>
+            <input name="email" 
+                #email
+                type="email" 
+                (keyup)="updateFormValidity()"
+                required
+            >
+            <span class="error-msg">{{ emailErrorMessage }}</span>
+            
+            <label for="password">Password:</label>
+            <div class="password-ctn">
+                <input name="password" 
+                    #password
+                    type="{{showPassword ? 'text' : 'password'}}" 
+                    pattern="[^()/><\][\\\x22,;|]+" 
+                    minlength="8" 
+                    maxlength="12"
+                    (keyup)="updateFormValidity()"
+                    required
+                >
+                <button class="toggle-pass-btn" (click)="toggleShowPassword()" type="button">
+                    <img src="{{'../assets/img/' + (showPassword ? 'show' : 'hide') + '.png'}}">
+                </button>
+            </div>
+            <span class="error-msg">{{ passwordErrorMessage }}</span>
+            
+            <label for="password-confirmation">Re-enter password:</label>
+            <div class="password-ctn">
+                <input name="password-confirmation" 
+                    #passwordConfirmation
+                    type="{{showPassword ? 'text' : 'password'}}" 
+                    pattern="[^()/><\][\\\x22,;|]+" 
+                    minlength="8" 
+                    maxlength="12"
+                    (keyup)="updateFormValidity()"
+                    required
+                >
+                <button class="toggle-pass-btn" (click)="toggleShowPassword()" type="button">
+                    <img src="{{'../assets/img/' + (showPassword ? 'show' : 'hide') + '.png'}}">
+                </button>
+            </div>
+            <span class="error-msg">{{ passwordConfirmationErrorMessage }}</span>
+
+            <button class="subscribe-btn" 
+                    (click)="subscribe($event)"
+                    [disabled]="!registrationButtonIsClickable"
+            >
+                Subscribe
+            </button>
+            <button id="reset-subscription" type="reset" hidden></button>
+
+            <div class="confirm-msg {{registrationSuccessful ? 'active' : ''}}">
+                <span>Your registration was successful.</span>
+                <br>
+                <br>
+                <span>You will soon receive a confirmation email!</span>
+            </div>
+        </form>
+            
+    </div>
+</footer>
